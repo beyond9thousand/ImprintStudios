@@ -26,10 +26,8 @@ jobs:
           name: release-zip
           path: ScriptsBundle.zip
 
-  # This job (optional) can be used in a separate workflow to download the artifact and create a release with an action that supports asset upload.
-
-  create-release:  # This job is optional and can be placed in a separate workflow
-    needs: bundle-scripts  # This job depends on the 'bundle-scripts' job
+  create-release:
+    needs: bundle-scripts
     runs-on: ubuntu-latest
 
     steps:
@@ -39,18 +37,26 @@ jobs:
           name: release-zip
           path: release-artifacts
 
-      - name: Create release (using a separate action that supports asset upload)
-        # Replace 'softprops/action-gh-release' with the chosen action and configure it
-        # according to its documentation. This example is for demonstration purposes only.
-        uses: softprops/action-gh-release@v1
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: v${{ github.run_number }}
           release_name: Release ${{ github.run_number }} - Scripts Bundle
-          body: |
-            Automatic release triggered by changes to files in the 'Scripts' folder.
           draft: false
           prerelease: false
-          # Replace with the path to the downloaded artifact
-          files: release-artifacts/ScriptsBundle.zip
+          body: |
+            Automatic release triggered by changes to files in the 'Scripts' folder.
+
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: release-artifacts/ScriptsBundle.zip
+          asset_name: ScriptsBundle.zip
+          asset_content_type: application/zip
