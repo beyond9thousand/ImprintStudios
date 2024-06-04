@@ -22,5 +22,3 @@ for %%D in (
     "04_Composite\03_Delivery"
     "05_Backups"
 ) do md "%%D"
-
-REM I am trying to trigger the release action
