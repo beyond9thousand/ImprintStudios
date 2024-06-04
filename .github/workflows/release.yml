@@ -15,15 +15,13 @@ jobs:
 
       - name: Bundle scripts for release
         run: |
-          # Replace with your bundling script
-          # Example: zip -r release.zip Scripts/file1 Scripts/file2
           cd Scripts && zip -r ../release.zip *
-
+          
       - name: Create release
         uses: actions/create-release@v1
         with:
           tag_name: v${{ github.run_number }}
-          release_name: Release ${{ github.run_number }}
+          release_name: Release ${{ github.run_number }} - Scripts Bundle
           body: |
             Automatic release triggered by changes to files in the 'Scripts' folder.
           draft: false
