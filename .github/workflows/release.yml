@@ -15,7 +15,7 @@ jobs:
 
       - name: Bundle scripts for release
         run: |
-          find ./Scripts -type f -exec zip -@ {} \; release.zip
+          zip -r release.zip ./Scripts/*
 
       - name: Rename zip file
         run: mv release.zip ScriptsBundle.zip
