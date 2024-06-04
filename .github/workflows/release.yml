@@ -17,7 +17,7 @@ jobs:
         run: |
           # Replace with your bundling script
           # Example: zip -r release.zip Scripts/file1 Scripts/file2
-          zip -r release.zip Scripts/3D_Animation_Pipeline.bat Scripts/VideoEditing_Pipeline.bat
+          cd Scripts && zip -r ../release.zip *
 
       - name: Create release
         uses: actions/create-release@v1
