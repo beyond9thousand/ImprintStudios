@@ -51,3 +51,14 @@
 4. **04_Assets**: Additional elements created or sourced for the project, often added during the editing process:
    - **01_Graphics**: Motion graphics, logos, and other graphical elements.
    - **02_Titles**: Title sequences and text elements.
+   - **03_VFX**: Visual effects elements.
+
+5. **05_Sequences**: Edited sequences or timelines, organized for easy access. This is where the actual editing work is done.
+
+6. **06_Exports**: Final and intermediate exports, representing the output stages:
+   - **01_WorkInProgress**: Drafts and intermediate exports for review.
+   - **02_Final**: Final exported versions of the project.
+
+7. **07_Backups**: Backup copies of important files, including project files and critical assets. Backups are critical at every stage.
+
+8. **08_Delivery**: Files prepared for final delivery to clients or distribution channels. This is the final step.
