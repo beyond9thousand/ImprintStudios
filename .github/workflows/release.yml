@@ -1,0 +1,32 @@
+name: Bundle Scripts for Release
+
+on:
+  push:
+    paths:
+      - 'Scripts/**' # Trigger the workflow on any push that changes files within the 'Scripts' folder
+
+jobs:
+  bundle-scripts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Bundle scripts for release
+        run: |
+          # Replace with your bundling script
+          # Example: zip -r release.zip Scripts/file1 Scripts/file2
+          zip -r release.zip Scripts/3D_Animation_Pipeline.bat Scripts/VideoEditing_Pipeline.bat
+
+      - name: Create release
+        uses: actions/create-release@v1
+        with:
+          tag_name: v${{ github.run_number }}
+          release_name: Release ${{ github.run_number }}
+          body: |
+            Automatic release triggered by changes to files in the 'Scripts' folder.
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
