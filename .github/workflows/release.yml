@@ -3,7 +3,7 @@ name: Bundle Scripts for Release
 on:
   push:
     paths:
-      - 'Scripts/**' # Trigger the workflow on any push that changes files within the 'Scripts' folder
+      - 'Scripts/**'  # Trigger on changes to the 'Scripts' folder
 
 jobs:
   bundle-scripts:
@@ -15,13 +15,34 @@ jobs:
 
       - name: Bundle scripts for release
         run: |
-          zip -r release.zip ./Scripts/*
-      
+          find ./Scripts -type f -exec zip -@ {} \; release.zip
+
       - name: Rename zip file
         run: mv release.zip ScriptsBundle.zip
 
-      - name: Create release
-        uses: actions/create-release@v1
+      - name: Upload release artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: release-zip
+          path: ScriptsBundle.zip
+
+  # This job (optional) can be used in a separate workflow to download the artifact and create a release with an action that supports asset upload.
+
+  create-release:  # This job is optional and can be placed in a separate workflow
+    needs: bundle-scripts  # This job depends on the 'bundle-scripts' job
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download release artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: release-zip
+          path: release-artifacts
+
+      - name: Create release (using a separate action that supports asset upload)
+        # Replace 'softprops/action-gh-release' with the chosen action and configure it
+        # according to its documentation. This example is for demonstration purposes only.
+        uses: softprops/action-gh-release@v1
         with:
           tag_name: v${{ github.run_number }}
           release_name: Release ${{ github.run_number }} - Scripts Bundle
@@ -29,6 +50,7 @@ jobs:
             Automatic release triggered by changes to files in the 'Scripts' folder.
           draft: false
           prerelease: false
-          files: ScriptsBundle.zip
+          # Replace with the path to the downloaded artifact
+          files: release-artifacts/ScriptsBundle.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
