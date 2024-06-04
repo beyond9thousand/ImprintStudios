@@ -15,7 +15,10 @@ jobs:
 
       - name: Bundle scripts for release
         run: |
-          zip -r release.zip Scripts/*
+          find ./Scripts -type f -print | zip -@ release.zip
+
+      - name: Rename zip file
+        run: mv release.zip ScriptsBundle.zip
 
       - name: Create release
         uses: actions/create-release@v1
@@ -26,5 +29,6 @@ jobs:
             Automatic release triggered by changes to files in the 'Scripts' folder.
           draft: false
           prerelease: false
+          files: ScriptsBundle.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
