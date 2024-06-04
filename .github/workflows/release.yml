@@ -15,8 +15,8 @@ jobs:
 
       - name: Bundle scripts for release
         run: |
-          cd Scripts && zip -r ../release.zip *
-          
+          zip -r release.zip Scripts/*
+
       - name: Create release
         uses: actions/create-release@v1
         with:
