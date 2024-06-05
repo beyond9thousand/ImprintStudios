@@ -13,18 +13,31 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Install GitHub CLI
+        run: sudo apt-get install gh
+
+      - name: Get total number of releases
+        id: get_release_count
+        run: |
+          RELEASE_COUNT=$(gh release list | wc -l)
+          echo "release_count=$RELEASE_COUNT" >> $GITHUB_ENV
+
+      - name: Calculate new version number
+        id: calc_version
+        run: echo "new_version=v$(( ${{ env.release_count }} + 1 ))" >> $GITHUB_ENV
+
       - name: Bundle scripts for release
         run: |
           zip -r release.zip ./Scripts/*
 
-      - name: Rename zip file
-        run: mv release.zip ScriptsBundle.zip
+      - name: Rename zip file with version number
+        run: mv release.zip ImprintStudios_FolderStructure_${{ env.new_version }}.zip
 
       - name: Upload release artifact
         uses: actions/upload-artifact@v2
         with:
           name: release-zip
-          path: ScriptsBundle.zip
+          path: ImprintStudios_FolderStructure_${{ env.new_version }}.zip
 
   create-release:
     needs: bundle-scripts
@@ -43,8 +56,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ github.run_number }}
-          release_name: Release ${{ github.run_number }} - Scripts Bundle
+          tag_name: ${{ env.new_version }}
+          release_name: Release ${{ env.new_version }} - Scripts Bundle
           draft: false
           prerelease: false
           body: |
@@ -57,6 +70,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: release-artifacts/ScriptsBundle.zip
-          asset_name: ScriptsBundle.zip
+          asset_path: release-artifacts/ImprintStudios_FolderStructure_${{ env.new_version }}.zip
+          asset_name: ImprintStudios_FolderStructure_${{ env.new_version }}.zip
           asset_content_type: application/zip
