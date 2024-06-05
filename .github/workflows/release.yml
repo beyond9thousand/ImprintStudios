@@ -7,6 +7,10 @@ on:
         description: 'Version number for the release'
         required: true
         default: '1.0.0'
+      release_body:
+        description: 'Release body content'
+        required: true
+        default: 'Automatic release triggered by workflow_dispatch.'
 
 jobs:
   bundle-scripts:
@@ -50,8 +54,7 @@ jobs:
           release_name: Release v${{ github.event.inputs.version }} - Scripts Bundle
           draft: false
           prerelease: false
-          body: |
-            Manual release triggered by workflow_dispatch with custom version number.
+          body: ${{ github.event.inputs.release_body }}
 
       - name: Upload Release Asset
         id: upload-release-asset
