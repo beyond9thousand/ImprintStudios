@@ -7,6 +7,52 @@
 
 ## 3D Pipeline
 
+```
+<FormattedDate>_<ProjectName>
+│
+├── 01_PreProduction
+│   ├── 01_Scripts
+│   ├── 02_Storyboards
+│   ├── 03_Concept_Art
+│   └── 04_Briefings
+│
+├── 02_Assets
+│   ├── 01_Models
+│   │   ├── 01_Characters
+│   │   ├── 02_Environments
+│   │   └── 03_Props
+│   ├── 02_Textures
+│   │   ├── 01_Character_Textures
+│   │   ├── 02_Environment_Textures
+│   │   ├── 03_Prop_Textures
+│   │   └── 04_Materials
+│   └── 03_References
+│
+├── 03_Animation
+│   ├── 01_Storyboards
+│   ├── 02_Animatics
+│   ├── 03_Keyframes
+│   └── 04_Scene_Files
+│
+├── 04_Renders
+│   ├── 01_Preview_Renders
+│   ├── 02_Final_Renders
+│   ├── 03_Caches
+│   └── 04_Image_Sequences
+│
+├── 05_Exports
+│   ├── 01_WIP_Exports
+│   ├── 02_Final_Exports
+│   └── 03_Delivery
+│
+└── 06_Backups
+    ├── 01_Project_Backups
+    └── 02_Render_Backups
+```
+
+<details>
+  <summary>Explanation</summary>
+
 - **01_PreProduction**
   - **01_Scripts**: Contains all scripts related to the project, such as planning documents or automation scripts.
   - **02_Storyboards**: Houses storyboard files that outline the project's visual sequences and scenes.
@@ -46,53 +92,74 @@
   - **01_Project_Backups**: Contains backup files for the entire project to safeguard against data loss.
   - **02_Render_Backups**: Stores backup files specific to renders.
 
+</details>
+
 ## Video Editing Pipeline
 
-1. **01_ProjectFiles**: Core project management and setup files.
-   - **Project Files**: Contains the main project files (e.g., `.aep` for After Effects, `.prproj` for Premiere Pro).
-   - **Brief & Documentation**: Project brief, scripts, storyboards, and other relevant documents.
-   - **References**: Reference images, mood boards, and inspiration materials.
+```
+<FormattedDate>_<ProjectName>
+│
+├── 01_Assets
+│   ├── 01_Brief
+│   ├── 02_Graphics
+│   ├── 03_Fonts
+│   ├── 04_StockFootage
+│   ├── 05_Textures
+│   ├── 06_3D_Models
+│   └── 07_Audio
+│       ├── 01_Music
+│       ├── 02_VoiceOver
+│       └── 03_SFX
+│
+├── 02_Animation
+│   ├── 01_Storyboard
+│   ├── 02_Keyframes
+│   └── 03_Scenes
+│
+├── 03_Render
+│   ├── 01_Preview
+│   ├── 02_Final
+│   └── 03_ImageSequence
+│
+├── 04_Export
+│   └── 01_Delivery
+│
+└── 05_Backups
+```
 
-2. **02_Assets**: Central repository for all creative assets.
-   - **Graphics**: Vector and raster graphics, illustrations, and logos.
-   - **Fonts**: All typefaces used in the project.
-   - **Stock Footage**: Purchased or sourced video clips.
-   - **Textures**: Textures and patterns used in the project.
-   - **3D Models**: 3D assets used in motion graphics.
-   - **Audio**:
-     - **Music**: Music tracks.
-     - **VoiceOvers**: Voice-over recordings.
-     - **SFX**: Sound effects.
-   - **Compositions**: Pre-comps or sub-comps used in main compositions.
-   - **Plugins & Presets**: Custom or third-party plugins and presets.
+<details>
+  <summary>Explanation</summary>
 
-3. **03_Design**: Files related to the design phase.
-   - **Style Frames**: Key visual frames representing the look and feel of the project.
-   - **Storyboards**: Detailed visual representations of the scenes.
-   - **Animatics**: Rough animations or sequences created to visualize timing and transitions.
+- **01_Assets**: Contains all asset-related files and subfolders.
+  - **01_Brief**: Houses project briefs and related documentation.
+  - **02_Graphics**: Stores graphic files used in the project.
+  - **03_Fonts**: Includes font files for the project.
+  - **04_StockFootage**: Contains stock footage and video assets.
+  - **05_Textures**: Holds texture files for models and environments.
+  - **06_3D_Models**: Stores 3D models of characters, environments, and props.
+  - **07_Audio**: Includes all audio-related files.
+    - **01_Music**: Contains background music tracks.
+    - **02_VoiceOver**: Stores voice-over recordings.
+    - **03_SFX**: Houses sound effects.
 
-4. **04_Scenes**: Individual scene files, organized by sequence or scene number.
-   - **Scene 01**: Specific assets and compositions for Scene 01.
-   - **Scene 02**: Specific assets and compositions for Scene 02.
-   - **Scene...**: Additional scenes as needed.
+- **02_Animation**: Contains folders related to animation work.
+  - **01_Storyboard**: Stores storyboard files that outline animation sequences.
+  - **02_Keyframes**: Holds keyframes that define critical points in animations.
+  - **03_Scenes**: Includes files for different scenes in the animation.
 
-5. **05_Renders**: Output files from the rendering process.
-   - **Preview Renders**: Low-res or draft renders for review.
-   - **Final Renders**: High-res renders for final delivery.
-   - **Image Sequences**: Frame-by-frame renders, often used for further compositing.
+- **03_Render**: Contains folders related to rendering.
+  - **01_Preview**: Houses preview renders for review.
+  - **02_Final**: Stores final rendered outputs.
+  - **03_ImageSequence**: Includes sequences of images created during rendering.
 
-6. **06_Exports**: Exported files for review, approval, or delivery.
-   - **Work in Progress**: Draft exports shared with clients or team members.
-   - **Final**: Final versions of the project for delivery.
-   - **Social Media**: Variants optimized for different platforms like Instagram, YouTube, etc.
+- **04_Export**: Contains folders related to exporting final files.
+  - **01_Delivery**: Includes files and assets prepared for delivery to clients or stakeholders.
 
-7. **07_Backups**: Backup copies of essential files to prevent data loss.
-   - **Project Backups**: Incremental backups of the project files.
-   - **Render Backups**: Backup of final and preview renders.
+- **05_Backups**: Houses backup folders for safeguarding project files.
+  - **01_Project_Backups**: Contains backup files for the entire project.
+  - **02_Render_Backups**: Stores backup files specific to rendered outputs.
 
-8. **08_Archive**: For storing older versions of assets or scenes that are no longer in active use.
-   - **Old Scenes**: Deprecated scene files.
-   - **Old Assets**: Older versions of assets no longer in use.
+</details>
 
 ## Nomenclature for Deliverables
 
