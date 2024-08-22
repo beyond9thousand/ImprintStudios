@@ -1,7 +1,9 @@
-# Folder Structure
+# Instructions
 
 - [3D Pipeline](#3d-pipeline)
 - [Video Editing Pipeline](#video-editing-pipeline)
+- [Nomenclature for Deliverables](#nomenclature-for-deliverables)
+
 
 ## 3D Pipeline
 
@@ -33,6 +35,7 @@
 
 5. **05_Backups**: Backup copies of important files.
 
+
 ## Video Editing Pipeline
 
 1. **01_ProjectFiles**: Stores the main project files from the editing software (e.g., Premiere Pro, Final Cut Pro, Avid). These are the core files you start with.
@@ -63,3 +66,23 @@
 7. **07_Backups**: Backup copies of important files, including project files and critical assets.
 
 8. **08_Delivery**: Files prepared for final delivery to clients or distribution channels. This is the final step.
+
+
+## Nomenclature for Deliverables
+
+`[ProjectName+Type]_[Preview]/[LowRes/Final]_v[Version]`
+
+Where
+- ProjectName+Type: Name of the project, followed by type of the content
+
+- Preview:      In case of viewport/grayscale/playblast animation
+
+- Version:      1,2,3...n
+          Version number will bump up to the next number only if there are major changes. Alternatively 1,1a,1b...1z should be followed. Preceeding 'v' is case sensitive. DO NOT use capitalized 'V' as a mandate.
+          
+Example: `Maybelline+CGI_LowRes_v1a`
+
+### Subcategories:
+
+- Storyboard > `STBD`
+- Keyframe > `KF`
