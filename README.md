@@ -7,33 +7,44 @@
 
 ## 3D Pipeline
 
-1. **01_Asset**: Contains all the primary assets used in the project.
-   - **01_Brief**: Project brief and initial concepts.
-   - **02_Models**: 3D models.
-   - **03_Textures**: Texture files for the models.
-   - **04_References**: Reference images and materials.
+- **01_PreProduction**
+  - **01_Scripts**: Contains all scripts related to the project, such as planning documents or automation scripts.
+  - **02_Storyboards**: Houses storyboard files that outline the project's visual sequences and scenes.
+  - **03_Concept_Art**: Stores concept art, sketches, and visual ideas that define the look and feel of the project.
+  - **04_Briefings**: Includes project briefs, outlines, and other documentation related to project objectives and goals.
 
-2. **02_Animation**: All files related to the animation process.
-   - **01_Storyboard**: Storyboards outlining the scenes.
-   - **02_Keyframes**: Keyframe animations.
-   - **03_Scenes**: Complete or nearly complete scene files, including:
-     - **Main Scene Files**: `.blend`, `.c4d`, `.ma`, `.mb`
-     - **Scene Layouts**: Early stage layout files
-     - **Scene-Specific Assets**: Props, environment pieces, etc.
-     - **Simulation Caches**: `.abc`, `.vdb`
-     - **Previews and Playblasts**: `.mp4`, `.mov`, image sequences
-     - **Notes and Documentation**: `.txt`, `.pdf`, `.xlsx`
+- **02_Assets**
+  - **01_Models**
+    - **01_Characters**: Contains 3D models of characters used in the project.
+    - **02_Environments**: Includes 3D models of environments and backgrounds.
+    - **03_Props**: Stores 3D models of props and other objects.
+  - **02_Textures**
+    - **01_Character_Textures**: Houses textures specifically for character models.
+    - **02_Environment_Textures**: Contains textures for environmental elements.
+    - **03_Prop_Textures**: Includes textures for props.
+    - **04_Materials**: Stores materials used in the project, such as shaders and surface properties.
+  - **03_References**: Contains reference materials, such as images or documents, that aid in the creation of models and textures.
 
-3. **03_Render**: Files related to rendering the animations.
-   - **01_Preview**: Preview renders for review.
-   - **02_Final**: Final rendered outputs.
+- **03_Animation**
+  - **01_Storyboards**: Holds storyboards related to animation sequences.
+  - **02_Animatics**: Contains animatics, which are preliminary versions of animations.
+  - **03_Keyframes**: Stores keyframes that define critical points in animation.
+  - **04_Scene_Files**: Includes files for different scenes in the animation process.
 
-4. **04_Composite**: Compositing phase where different elements are combined.
-   - **01_Preview**: Preview composites for review.
-   - **02_Output**: Final composite outputs.
-   - **03_Delivery**: Files prepared for delivery to clients or final output.
+- **04_Renders**
+  - **01_Preview_Renders**: Contains renders that are used for previewing the project.
+  - **02_Final_Renders**: Houses the final rendered outputs of the project.
+  - **03_Caches**: Stores cache files generated during the rendering process.
+  - **04_Image_Sequences**: Includes sequences of images created during rendering.
 
-5. **05_Backups**: Backup copies of important files.
+- **05_Exports**
+  - **01_WIP_Exports**: Contains work-in-progress exports that are not yet finalized.
+  - **02_Final_Exports**: Houses final exported files ready for delivery or presentation.
+  - **03_Delivery**: Includes files and assets prepared for delivery to clients or stakeholders.
+
+- **06_Backups**
+  - **01_Project_Backups**: Contains backup files for the entire project to safeguard against data loss.
+  - **02_Render_Backups**: Stores backup files specific to renders.
 
 ## Video Editing Pipeline
 
