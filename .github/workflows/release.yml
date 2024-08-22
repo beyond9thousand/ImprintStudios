@@ -11,6 +11,10 @@ on:
         description: 'Release body content'
         required: true
         default: 'Automatic release triggered by workflow_dispatch.'
+      prerelease:
+        description: 'Mark this release as a pre-release'
+        required: false
+        default: 'false'
 
 jobs:
   bundle-scripts:
@@ -53,7 +57,7 @@ jobs:
           tag_name: v${{ github.event.inputs.version }}
           release_name: Release v${{ github.event.inputs.version }} - Scripts Bundle
           draft: false
-          prerelease: false
+          prerelease: ${{ github.event.inputs.prerelease }}
           body: ${{ github.event.inputs.release_body }}
 
       - name: Upload Release Asset
