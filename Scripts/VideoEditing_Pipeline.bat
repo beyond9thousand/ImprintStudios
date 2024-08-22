@@ -14,27 +14,28 @@ set "RootDir=.\%FormattedDate%_%Project%"
 :: Create the root directory
 md "%RootDir%"
 
-:: Define and create subdirectories
+:: Define and create subdirectories with numbering
 for %%D in (
-    "01_ProjectFiles",
-    "02_References",
-    "03_Media\01_RawFootage",
-    "03_Media\02_Proxies",
-    "03_Media\03_Audio\01_Music",
-    "03_Media\03_Audio\02_VoiceOvers",
-    "03_Media\03_Audio\03_SFX",
-    "03_Media\04_Images",
-    "04_Assets\01_Graphics",
-    "04_Assets\02_Titles",
-    "04_Assets\03_VFX",
-    "05_Sequences",
-    "06_Exports\01_WorkInProgress",
-    "06_Exports\02_Final",
-    "07_Backups",
-    "08_Delivery"
+    "01_Assets\01_Brief",
+    "01_Assets\02_Graphics",
+    "01_Assets\03_Fonts",
+    "01_Assets\04_StockFootage",
+    "01_Assets\05_Textures",
+    "01_Assets\06_3D_Models",
+    "01_Assets\07_Audio\01_Music",
+    "01_Assets\07_Audio\02_VoiceOver",
+    "01_Assets\07_Audio\03_SFX",
+    "02_Animation\01_Storyboard",
+    "02_Animation\02_Keyframes",
+    "02_Animation\03_Scenes",
+    "03_Render\01_Preview",
+    "03_Render\02_Final",
+    "03_Render\03_ImageSequence",
+    "04_Export\01_Delivery",
+    "05_Backups"
 ) do md "%RootDir%\%%D"
 
-:: Optional: Change to the project root directory
+:: Optionally change to the project root directory
 cd "%RootDir%"
 
 :: End of script
