@@ -35,38 +35,53 @@
 
 5. **05_Backups**: Backup copies of important files.
 
-
 ## Video Editing Pipeline
 
-1. **01_ProjectFiles**: Stores the main project files from the editing software (e.g., Premiere Pro, Final Cut Pro, Avid). These are the core files you start with.
-   - **Project Files**: `.prproj` (Premiere Pro), `.fcpx` (Final Cut Pro), `.aep` (After Effects), `.proj` (Avid)
+1. **01_ProjectFiles**: Core project management and setup files.
+   - **Project Files**: Contains the main project files (e.g., `.aep` for After Effects, `.prproj` for Premiere Pro).
+   - **Brief & Documentation**: Project brief, scripts, storyboards, and other relevant documents.
+   - **References**: Reference images, mood boards, and inspiration materials.
 
-2. **02_References**: Reference materials such as scripts, storyboards, and inspiration files. These are often reviewed before the editing starts.
-
-3. **03_Media**: Contains all raw and prepared media files, which are imported into the project:
-   - **01_RawFootage**: Raw video files directly from the camera.
-   - **02_Proxies**: Lower resolution or optimized files used for smoother editing.
-   - **03_Audio**: Subdirectories for different types of audio.
+2. **02_Assets**: Central repository for all creative assets.
+   - **Graphics**: Vector and raster graphics, illustrations, and logos.
+   - **Fonts**: All typefaces used in the project.
+   - **Stock Footage**: Purchased or sourced video clips.
+   - **Textures**: Textures and patterns used in the project.
+   - **3D Models**: 3D assets used in motion graphics.
+   - **Audio**:
      - **Music**: Music tracks.
      - **VoiceOvers**: Voice-over recordings.
      - **SFX**: Sound effects.
-   - **04_Images**: Any images or stills used in the project.
+   - **Compositions**: Pre-comps or sub-comps used in main compositions.
+   - **Plugins & Presets**: Custom or third-party plugins and presets.
 
-4. **04_Assets**: Additional elements created or sourced for the project, often added during the editing process:
-   - **Graphics**: Motion graphics, logos, and other graphical elements.
-   - **Titles**: Title sequences and text elements.
-   - **VFX**: Visual effects elements.
+3. **03_Design**: Files related to the design phase.
+   - **Style Frames**: Key visual frames representing the look and feel of the project.
+   - **Storyboards**: Detailed visual representations of the scenes.
+   - **Animatics**: Rough animations or sequences created to visualize timing and transitions.
 
-5. **05_Sequences**: Edited sequences or timelines, organized for easy access. This is where the actual editing work is done.
+4. **04_Scenes**: Individual scene files, organized by sequence or scene number.
+   - **Scene 01**: Specific assets and compositions for Scene 01.
+   - **Scene 02**: Specific assets and compositions for Scene 02.
+   - **Scene...**: Additional scenes as needed.
 
-6. **06_Exports**: Final and intermediate exports, representing the output stages:
-   - **01_WorkInProgress**: Drafts and intermediate exports for review.
-   - **02_Final**: Final exported versions of the project, typically `.mp4`, `.mov`, `.avi`
+5. **05_Renders**: Output files from the rendering process.
+   - **Preview Renders**: Low-res or draft renders for review.
+   - **Final Renders**: High-res renders for final delivery.
+   - **Image Sequences**: Frame-by-frame renders, often used for further compositing.
 
-7. **07_Backups**: Backup copies of important files, including project files and critical assets.
+6. **06_Exports**: Exported files for review, approval, or delivery.
+   - **Work in Progress**: Draft exports shared with clients or team members.
+   - **Final**: Final versions of the project for delivery.
+   - **Social Media**: Variants optimized for different platforms like Instagram, YouTube, etc.
 
-8. **08_Delivery**: Files prepared for final delivery to clients or distribution channels. This is the final step.
+7. **07_Backups**: Backup copies of essential files to prevent data loss.
+   - **Project Backups**: Incremental backups of the project files.
+   - **Render Backups**: Backup of final and preview renders.
 
+8. **08_Archive**: For storing older versions of assets or scenes that are no longer in active use.
+   - **Old Scenes**: Deprecated scene files.
+   - **Old Assets**: Older versions of assets no longer in use.
 
 ## Nomenclature for Deliverables
 
