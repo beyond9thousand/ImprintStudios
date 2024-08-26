@@ -16,7 +16,7 @@ md "%RootDir%"
 
 :: Define and create subdirectories with numbering
 for %%D in (
-    "01_Assets\01_Brief",
+    "01_Assets\01_Briefing",
     "01_Assets\02_Graphics",
     "01_Assets\03_Fonts",
     "01_Assets\04_StockFootage",
