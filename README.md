@@ -14,7 +14,7 @@
 │   ├── 01_Scripts
 │   ├── 02_Storyboards
 │   ├── 03_Concept_Art
-│   └── 04_Briefings
+│   └── 04_Briefing
 │
 ├── 02_Assets
 │   ├── 01_Models
@@ -57,7 +57,7 @@
   - **01_Scripts**: Contains all scripts related to the project, such as planning documents or automation scripts.
   - **02_Storyboards**: Houses storyboard files that outline the project's visual sequences and scenes.
   - **03_Concept_Art**: Stores concept art, sketches, and visual ideas that define the look and feel of the project.
-  - **04_Briefings**: Includes project briefs, outlines, and other documentation related to project objectives and goals.
+  - **04_Briefing**: Includes project briefs, outlines, and other documentation related to project objectives and goals.
 
 - **02_Assets**
   - **01_Models**
@@ -100,7 +100,7 @@
 <FormattedDate>_<ProjectName>
 │
 ├── 01_Assets
-│   ├── 01_Brief
+│   ├── 01_Briefing
 │   ├── 02_Graphics
 │   ├── 03_Fonts
 │   ├── 04_StockFootage
@@ -131,7 +131,7 @@
   <summary>Explanation</summary>
 
 - **01_Assets**: Contains all asset-related files and subfolders.
-  - **01_Brief**: Houses project briefs and related documentation.
+  - **01_Briefing**: Houses project briefs and related documentation.
   - **02_Graphics**: Stores graphic files used in the project.
   - **03_Fonts**: Includes font files for the project.
   - **04_StockFootage**: Contains stock footage and video assets.
