@@ -27,7 +27,7 @@ jobs:
       - name: Insert version comment into scripts
         run: |
           for file in ./Scripts/*.bat; do
-            echo -e ":: Version: v${{ github.event.inputs.version }}\n$(cat "$file")" > "$file"
+            sed -i "1s/^/:: Version: v${{ github.event.inputs.version }}\n/" "$file"
           done
 
       - name: Bundle scripts for release
