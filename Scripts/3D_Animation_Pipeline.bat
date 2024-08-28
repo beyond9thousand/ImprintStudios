@@ -16,10 +16,9 @@ md "%RootDir%"
 
 :: Define and create subdirectories
 for %%D in (
-    "01_PreProduction\01_Scripts",
-    "01_PreProduction\02_Storyboards",
+    "01_PreProduction\01_Briefings",
+    "01_PreProduction\02_Scripts",
     "01_PreProduction\03_Concept_Art",
-    "01_PreProduction\04_Briefing",
     "02_Assets\01_Models\01_Characters",
     "02_Assets\01_Models\02_Environments",
     "02_Assets\01_Models\03_Props",
