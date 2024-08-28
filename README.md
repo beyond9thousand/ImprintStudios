@@ -11,10 +11,9 @@
 <FormattedDate>_<ProjectName>
 │
 ├── 01_PreProduction
-│   ├── 01_Scripts
-│   ├── 02_Storyboards
-│   ├── 03_Concept_Art
-│   └── 04_Briefing
+│   ├── 01_Briefings
+│   ├── 02_Scripts
+│   └── 03_Concept_Art
 │
 ├── 02_Assets
 │   ├── 01_Models
@@ -53,44 +52,43 @@
 <details>
   <summary>Explanation</summary>
 
-- **01_PreProduction**
-  - **01_Scripts**: Contains all scripts related to the project, such as planning documents or automation scripts.
-  - **02_Storyboards**: Houses storyboard files that outline the project's visual sequences and scenes.
-  - **03_Concept_Art**: Stores concept art, sketches, and visual ideas that define the look and feel of the project.
-  - **04_Briefing**: Includes project briefs, outlines, and other documentation related to project objectives and goals.
+- **01_PreProduction**: Contains all pre-production related files.
+  - **01_Briefings**: Houses project briefs and any related initial documentation.
+  - **02_Scripts**: Stores scripts for the project, including drafts and final versions.
+  - **03_Concept_Art**: Includes concept art, sketches, and design visuals used during the project planning phase.
 
-- **02_Assets**
-  - **01_Models**
-    - **01_Characters**: Contains 3D models of characters used in the project.
-    - **02_Environments**: Includes 3D models of environments and backgrounds.
-    - **03_Props**: Stores 3D models of props and other objects.
-  - **02_Textures**
-    - **01_Character_Textures**: Houses textures specifically for character models.
-    - **02_Environment_Textures**: Contains textures for environmental elements.
-    - **03_Prop_Textures**: Includes textures for props.
-    - **04_Materials**: Stores materials used in the project, such as shaders and surface properties.
-  - **03_References**: Contains reference materials, such as images or documents, that aid in the creation of models and textures.
+- **02_Assets**: This directory contains all asset-related files used in the project.
+  - **01_Models**: Stores all 3D models.
+    - **01_Characters**: Character models used in the project.
+    - **02_Environments**: Environmental models, such as landscapes or buildings.
+    - **03_Props**: Prop models, including any items or objects used in scenes.
+  - **02_Textures**: Holds texture files applied to 3D models.
+    - **01_Character_Textures**: Textures specifically for character models.
+    - **02_Environment_Textures**: Textures for environmental models.
+    - **03_Prop_Textures**: Textures for prop models.
+    - **04_Materials**: Materials and shaders used in the project.
+  - **03_References**: Reference images, documents, and other resources utilized during the creation of models and animations.
 
-- **03_Animation**
-  - **01_Storyboards**: Holds storyboards related to animation sequences.
-  - **02_Animatics**: Contains animatics, which are preliminary versions of animations.
-  - **03_Keyframes**: Stores keyframes that define critical points in animation.
-  - **04_Scene_Files**: Includes files for different scenes in the animation process.
+- **03_Animation**: Organizes all animation-related files.
+  - **01_Storyboards**: Contains storyboards outlining the sequences of animation.
+  - **02_Animatics**: Includes animatics, which are preliminary versions of the animation.
+  - **03_Keyframes**: Stores keyframes, which define the main poses or moments in the animation timeline.
+  - **04_Scene_Files**: Contains files related to individual scenes within the animation.
 
-- **04_Renders**
-  - **01_Preview_Renders**: Contains renders that are used for previewing the project.
-  - **02_Final_Renders**: Houses the final rendered outputs of the project.
-  - **03_Caches**: Stores cache files generated during the rendering process.
-  - **04_Image_Sequences**: Includes sequences of images created during rendering.
+- **04_Renders**: Holds all render-related outputs.
+  - **01_Preview_Renders**: Preview renders for checking progress and making adjustments.
+  - **02_Final_Renders**: Final renders, representing the completed visual outputs.
+  - **03_Caches**: Cache files generated during the rendering process, useful for re-renders or troubleshooting.
+  - **04_Image_Sequences**: Image sequences generated from the renders, often used in post-production.
 
-- **05_Exports**
-  - **01_WIP_Exports**: Contains work-in-progress exports that are not yet finalized.
-  - **02_Final_Exports**: Houses final exported files ready for delivery or presentation.
-  - **03_Delivery**: Includes files and assets prepared for delivery to clients or stakeholders.
+- **05_Exports**: Contains files prepared for export and delivery.
+  - **01_WIP_Exports**: Work-in-progress exports, typically used for reviews and feedback.
+  - **02_Final_Exports**: Finalized export files ready for distribution or client delivery.
+  - **03_Delivery**: Files and assets that are packaged and ready for final delivery.
 
-- **06_Backups**
-  - **01_Project_Backups**: Contains backup files for the entire project to safeguard against data loss.
-  - **02_Render_Backups**: Stores backup files specific to renders.
+- **06_Backups**: Backup directories to ensure the project is safe from data loss.
+  - **01_Project_Backups**: Backups of the entire project directory.
+  - **02_Render_Backups**: Backups specifically related to rendered files, ensuring no loss of important outputs.
 
 </details>
 
