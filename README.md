@@ -159,6 +159,80 @@
 
 </details>
 
+## Graphic Design Pipeline
+
+```
+<FormattedDate>_<ProjectName>
+│
+├── 01_PreProduction
+│   ├── 01_Briefings
+│   ├── 02_Moodboards
+│   └── 03_Sketches
+│
+├── 02_Assets
+│   ├── 01_Source_Files
+│   │   ├── 01_Raster_Graphics
+│   │   ├── 02_Vector_Graphics
+│   │   ├── 03_Page_Layouts
+│   │   └── 04_Other_Design_Files
+│   ├── 02_References
+│   ├── 03_Fonts
+│   ├── 04_Stock_Images
+│   └── 05_Vectors
+│
+├── 03_Design
+│   ├── 01_Drafts
+│   ├── 02_Review_Files
+│   └── 03_Final_Designs
+│
+├── 04_Delivery
+│   ├── 01_Client_Preview
+│   ├── 02_Final_Files
+│   └── 03_Print_Ready
+│
+└── 05_Backups
+    ├── 01_Project_Backups
+    └── 02_Design_Backups
+
+```
+
+<details>
+  <summary>Explanation</summary>
+
+# Explanation of Folder Structure
+
+- **01_PreProduction**
+  - **01_Briefings:** Notes, client requirements, and project briefs.
+  - **02_Moodboards:** Inspiration boards, references, and visual styles.
+  - **03_Sketches:** Early concepts, hand-drawn or digital sketches.
+
+- **02_Assets**
+  - **01_Source_Files:**
+    - **01_Raster_Graphics:** Pixel-based files (e.g., `.psd`, `.xcf`).
+    - **02_Vector_Graphics:** Scalable vector files (e.g., `.ai`, `.svg`).
+    - **03_Page_Layouts:** Multi-page documents (e.g., `.indd`, `.pub`).
+    - **04_Other_Design_Files:** Miscellaneous files from other software.
+  - **02_References:** Research images, screenshots, or notes.
+  - **03_Fonts:** Custom or project-specific typefaces.
+  - **04_Stock_Images:** Licensed stock photos and graphics.
+  - **05_Vectors:** Purchased or custom-made vector resources.
+
+- **03_Design**
+  - **01_Drafts:** Work-in-progress designs and rough drafts.
+  - **02_Review_Files:** Files shared for feedback and revisions.
+  - **03_Final_Designs:** Polished designs ready for delivery.
+
+- **04_Delivery**
+  - **01_Client_Preview:** Files prepared for client feedback (e.g., watermarked).
+  - **02_Final_Files:** Finalized designs delivered to the client.
+  - **03_Print_Ready:** Print-optimized versions of the final designs.
+
+- **05_Backups**
+  - **01_Project_Backups:** General backups for the project.
+  - **02_Design_Backups:** Specific backups for key design files.
+
+</details>
+
 ## Nomenclature for Deliverables
 
 `[ProjectName+Type]_[Preview]/[LowRes/Final]_v[Version]`
@@ -170,10 +244,19 @@ Where
 
 - Version:      1,2,3...n
           Version number will bump up to the next number only if there are major changes. Alternatively 1,1a,1b...1z should be followed. Preceeding 'v' is case sensitive. DO NOT use capitalized 'V' as a mandate.
-          
-Example: `Maybelline+CGI_LowRes_v1a`
 
 ### Subcategories:
 
-- Storyboard > `STBD`
-- Keyframe > `KF`
+- Storyboard --> `STBD`
+- Keyframe --> `KF`
+
+Example:
+- `Maybelline+CGI_KF_v1.ppt`
+
+For animation renders the current stage should be mentioned inside `[...]`
+- `Loreal+OOH_[Preview]_v1a.mov` This can be applicable for grayscale etc
+- `Maybelline+CGI_[SFX]_v1a.mov` This can be post-production nomenclature
+- `Incredibowl_S3+AV_JerseyReveal_[WIP]_v1.mp4`
+
+If a project has multiple deliverables on parallel heirarchy, different parts can be labelled as `P+1` or `P+Primary` etc
+- `TBSE+AV_TrophyReveal_P+Main_[Final]_v5.mov`
