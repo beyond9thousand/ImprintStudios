@@ -256,7 +256,7 @@ Example:
 For animation renders the current stage should be mentioned inside `[...]`
 - `Loreal+OOH_[Preview]_v1a.mov` This can be applicable for grayscale etc
 - `Maybelline+CGI_[SFX]_v1a.mov` This can be post-production nomenclature
-- `Incredibowl_S3+AV_JerseyReveal_[WIP]_v1.mp4`
+- `Incredibowl_S3+AV_JerseyReveal_[WIP]_v1.mov` Stages such as this can be mentioned when working with video deliverables
 
 If a project has multiple deliverables on parallel heirarchy, different parts can be labelled as `P+1` or `P+Primary` etc
 - `TBSE+AV_TrophyReveal_P+Main_[Final]_v5.mov`
