@@ -2,6 +2,7 @@
 
 - [3D Pipeline](#3d-pipeline)
 - [Video Editing Pipeline](#video-editing-pipeline)
+- [Graphic Design Pipeline](#graphic-design-pipeline)
 - [Nomenclature for Deliverables](#nomenclature-for-deliverables)
 
 
@@ -239,9 +240,7 @@
 
 Where
 - ProjectName+Type: Name of the project, followed by type of the content
-
 - Preview:      In case of viewport/grayscale/playblast animation
-
 - Version:      1,2,3...n
           Version number will bump up to the next number only if there are major changes. Alternatively 1,1a,1b...1z should be followed. Preceeding 'v' is case sensitive. DO NOT use capitalized 'V' as a mandate.
 
