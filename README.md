@@ -5,14 +5,13 @@
 - [Graphic Design Pipeline](#graphic-design-pipeline)
 - [Nomenclature for Deliverables](#nomenclature-for-deliverables)
 
-
 ## 3D Pipeline
 
 ```
 <FormattedDate>_<ProjectName>
 │
 ├── 01_PreProduction
-│   ├── 01_Briefings
+│   ├── 01_Briefingsv
 │   ├── 02_Scripts
 │   └── 03_Concept_Art
 │
@@ -42,8 +41,8 @@
 │
 ├── 05_Exports
 │   ├── 01_WIP_Exports
-│   ├── 02_Final_Exports
-│   └── 03_Delivery
+│   ├── 02_Final_Export
+│   └─ 03_Delivery
 │
 └── 06_Backups
     ├── 01_Project_Backups
@@ -54,11 +53,13 @@
   <summary>Explanation</summary>
 
 - **01_PreProduction**: Contains all pre-production related files.
+
   - **01_Briefings**: Houses project briefs and any related initial documentation.
   - **02_Scripts**: Stores scripts for the project, including drafts and final versions.
   - **03_Concept_Art**: Includes concept art, sketches, and design visuals used during the project planning phase.
 
 - **02_Assets**: This directory contains all asset-related files used in the project.
+
   - **01_Models**: Stores all 3D models.
     - **01_Characters**: Character models used in the project.
     - **02_Environments**: Environmental models, such as landscapes or buildings.
@@ -71,18 +72,21 @@
   - **03_References**: Reference images, documents, and other resources utilized during the creation of models and animations.
 
 - **03_Animation**: Organizes all animation-related files.
+
   - **01_Storyboards**: Contains storyboards outlining the sequences of animation.
   - **02_Animatics**: Includes animatics, which are preliminary versions of the animation.
   - **03_Keyframes**: Stores keyframes, which define the main poses or moments in the animation timeline.
   - **04_Scene_Files**: Contains files related to individual scenes within the animation.
 
 - **04_Renders**: Holds all render-related outputs.
+
   - **01_Preview_Renders**: Preview renders for checking progress and making adjustments.
   - **02_Final_Renders**: Final renders, representing the completed visual outputs.
   - **03_Caches**: Cache files generated during the rendering process, useful for re-renders or troubleshooting.
   - **04_Image_Sequences**: Image sequences generated from the renders, often used in post-production.
 
 - **05_Exports**: Contains files prepared for export and delivery.
+
   - **01_WIP_Exports**: Work-in-progress exports, typically used for reviews and feedback.
   - **02_Final_Exports**: Finalized export files ready for distribution or client delivery.
   - **03_Delivery**: Files and assets that are packaged and ready for final delivery.
@@ -130,6 +134,7 @@
   <summary>Explanation</summary>
 
 - **01_Assets**: Contains all asset-related files and subfolders.
+
   - **01_Briefing**: Houses project briefs and related documentation.
   - **02_Graphics**: Stores graphic files used in the project.
   - **03_Fonts**: Includes font files for the project.
@@ -142,16 +147,19 @@
     - **03_SFX**: Houses sound effects.
 
 - **02_Animation**: Contains folders related to animation work.
+
   - **01_Storyboard**: Stores storyboard files that outline animation sequences.
   - **02_Keyframes**: Holds keyframes that define critical points in animations.
   - **03_Scenes**: Includes files for different scenes in the animation.
 
 - **03_Render**: Contains folders related to rendering.
+
   - **01_Preview**: Houses preview renders for review.
   - **02_Final**: Stores final rendered outputs.
   - **03_ImageSequence**: Includes sequences of images created during rendering.
 
 - **04_Export**: Contains folders related to exporting final files.
+
   - **01_Delivery**: Includes files and assets prepared for delivery to clients or stakeholders.
 
 - **05_Backups**: Houses backup folders for safeguarding project files.
@@ -203,11 +211,13 @@
 # Explanation of Folder Structure
 
 - **01_PreProduction**
+
   - **01_Briefings:** Notes, client requirements, and project briefs.
   - **02_Moodboards:** Inspiration boards, references, and visual styles.
   - **03_Sketches:** Early concepts, hand-drawn or digital sketches.
 
 - **02_Assets**
+
   - **01_Source_Files:**
     - **01_Raster_Graphics:** Pixel-based files (e.g., `.psd`, `.xcf`).
     - **02_Vector_Graphics:** Scalable vector files (e.g., `.ai`, `.svg`).
@@ -219,11 +229,13 @@
   - **05_Vectors:** Purchased or custom-made vector resources.
 
 - **03_Design**
+
   - **01_Drafts:** Work-in-progress designs and rough drafts.
   - **02_Review_Files:** Files shared for feedback and revisions.
   - **03_Final_Designs:** Polished designs ready for delivery.
 
 - **04_Delivery**
+
   - **01_Client_Preview:** Files prepared for client feedback (e.g., watermarked).
   - **02_Final_Files:** Finalized designs delivered to the client.
   - **03_Print_Ready:** Print-optimized versions of the final designs.
@@ -236,26 +248,35 @@
 
 ## Nomenclature for Deliverables
 
-`[ProjectName+Type]_[Preview]/[LowRes/Final]_v[Version]`
+`ProjectName+ContentType_PartNumber/Name_[ProjectStage]_v1,2,3...n`
 
-Where
-- ProjectName+Type: Name of the project, followed by type of the content
-- Preview:      In case of viewport/grayscale/playblast animation
-- Version:      1,2,3...n
-          Version number will bump up to the next number only if there are major changes. Alternatively 1,1a,1b...1z should be followed. Preceeding 'v' is case sensitive. DO NOT use capitalized 'V' as a mandate.
+### Project Name
 
-### Subcategories:
+Name of the project. To be decided as per directives by project coordinator
 
-- Storyboard --> `STBD`
-- Keyframe --> `KF`
+### Content Type
 
-Example:
-- `Maybelline+CGI_KF_v1.ppt`
+Types of content currently include 3D OOH, CGI Videos, TV Commercials or Event Audio Visuals
 
-For animation renders the current stage should be mentioned inside `[...]`
-- `Loreal+OOH_[Preview]_v1a.mov` This can be applicable for grayscale etc
-- `Maybelline+CGI_[SFX]_v1a.mov` This can be post-production nomenclature
-- `Incredibowl_S3+AV_JerseyReveal_[WIP]_v1.mov` Stages such as this can be mentioned when working with video deliverables
+- 3D OOH --> `OOH`
+- CGI Videos --> `CGI`
+- TV Commercials --> `TVC`
+- Event Audio Visuals --> `AV`
 
-If a project has multiple deliverables on parallel heirarchy, different parts can be labelled as `P+1` or `P+Primary` etc
-- `TBSE+AV_TrophyReveal_P+Main_[Final]_v5.mov`
+### Part Number or Name
+
+Projects with multiple deliverables on the same hierarchy level can be assigned names or numbers accordingly
+
+### Project Stage
+
+Current stage of the content can be defined as necessary
+
+Examples:
+
+- `Preview`, `Grayscale`, `WIP`
+
+### Versioning
+
+Case sensitive versioning number. Major changes will contribute to increments in version number. Smaller changes will contribute to subversions such as `v1,v1a,1b,c...`
+
+**Example:** `Loreal+CGI_[Preview]_v3`
