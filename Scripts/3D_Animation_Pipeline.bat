@@ -6,7 +6,7 @@ set /p Project="Enter Project Name: "
 
 :: Retrieve and format the current date as DDMMYY
 for /f "tokens=2 delims==" %%I in ('wmic os get localdatetime /value') do set "dt=%%I"
-set "FormattedDate=%dt:~6,2%%dt:~4,2%%dt:~2,2%"
+set "FormattedDate=%dt:~2,2%%dt:~4,2%%dt:~6,2%"
 
 :: Define the root directory path for the project
 set "RootDir=.\%FormattedDate%_%Project%"
