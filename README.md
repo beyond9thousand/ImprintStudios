@@ -252,11 +252,11 @@
 
 ### Project Name
 
-Name of the project. To be decided as per directives by project coordinator
+Name of the project, to be decided as per directives by project coordinator
 
 ### Content Type
 
-Types of content currently include 3D OOH, CGI Videos, TV Commercials or Event Audio Visuals
+Types of content currently include 3D OOH, CGI Videos, TV Commercials & Event Audio Visuals
 
 - 3D OOH --> `OOH`
 - CGI Videos --> `CGI`
@@ -279,4 +279,7 @@ Examples:
 
 Case sensitive versioning number. Major changes will contribute to increments in version number. Smaller changes will contribute to subversions such as `v1,v1a,1b,c...`
 
-**Example:** `Loreal+CGI_[Preview]_v3`
+**Examples:**
+- `Loreal+CGI_[Preview]_v3`
+- `Stellar+OOH_[Delivery]_v1`
+- `TATA+AV_STB_v2a`
