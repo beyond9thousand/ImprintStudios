@@ -16,24 +16,19 @@ md "%RootDir%"
 
 :: Define and create subdirectories
 for %%D in (
-    "01_Briefings",
+    "01_PreProduction",
     "02_References",
-    "03_Scripts",
-    "04_Storyboards\01_Thumbnails",
-    "04_Storyboards\02_Clean_Storyboards",
-    "05_ConceptArt\01_Characters",
-    "05_ConceptArt\02_Environments",
-    "05_ConceptArt\03_Props",
-    "06_Styleframes",
-    "07_Shot_List",
-    "08_Feedback\01_Internal",
-    "08_Feedback\02_Client",
-    "09_Exports\01_Presentation_Boards",
-    "09_Exports\02_Deliverables",
-    "10_Backups"
+    "03_Storyboards\01_Thumbnails",
+    "03_Storyboards\02_Clean_Storyboards",
+    "04_ConceptArt\01_Characters",
+    "04_ConceptArt\02_Environments",
+    "04_ConceptArt\03_Props",
+    "05_Styleframes",
+    "06_Deliverables",
+    "07_Feedback\01_Internal",
+    "07_Feedback\02_Client",
+    "08_Backups"
 ) do md "%RootDir%\%%D"
 
-:: Optionally change to the project root directory
 cd "%RootDir%"
-
 :: End of script
