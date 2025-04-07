@@ -16,11 +16,11 @@ md "%RootDir%"
 
 :: Define and create subdirectories
 for %%D in (
-    "01_PreProduction\Briefings",
-    "01_PreProduction\Moodboards",
-    "02_References\Photo",
-    "02_References\3D",
-    "02_References\Style",
+    "01_PreProduction\01_Briefings",
+    "01_PreProduction\02_Moodboards",
+    "02_References\01_Photo",
+    "02_References\02_3D",
+    "02_References\03_Style",
     "03_Visual_Development\01_Sketches",
     "03_Visual_Development\02_Storyboards",
     "03_Visual_Development\03_Concept_Art",
