@@ -12,13 +12,13 @@
 <FormattedDate>_<ProjectName>
 │
 ├── 01_PreProduction
-│   ├── Briefings
-│   └── Moodboards
+│   ├── 01_Briefings
+│   └── 02_Moodboards
 │
 ├── 02_References
-│   ├── Photo
-│   ├── 3D
-│   └── Style
+│   ├── 01_Photo
+│   ├── 02_3D
+│   └── 03_Style
 │
 ├── 03_Visual_Development
 │   ├── 01_Sketches
