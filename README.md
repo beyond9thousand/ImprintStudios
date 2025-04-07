@@ -1,9 +1,67 @@
 # Instructions
 
+- [Concept Art Pipeline](#concept-art-pipeline)
 - [3D Pipeline](#3d-pipeline)
 - [Video Editing Pipeline](#video-editing-pipeline)
 - [Graphic Design Pipeline](#graphic-design-pipeline)
 - [Nomenclature for Deliverables](#nomenclature-for-deliverables)
+
+## Concept Art Pipeline
+
+```
+<FormattedDate>_<ProjectName>
+│
+├── 01_PreProduction
+│   ├── Briefings
+│   └── Moodboards
+│
+├── 02_References
+│   ├── Photo
+│   ├── 3D
+│   └── Style
+│
+├── 03_Visual_Development
+│   ├── 01_Sketches
+│   ├── 02_Storyboards
+│   ├── 03_Concept_Art
+│   └── 04_Styleframes
+│
+├── 04_Deliverables
+│
+├── 05_Feedback
+│   ├── 01_Internal
+│   └── 02_Client
+│
+└── 06_Backups
+```
+
+<details>
+  <summary>Explanation</summary>
+
+- **01_PreProduction**  
+  Briefs, kickoff material, and initial moodboards.
+
+- **02_References**  
+  Photo, 3D, and stylistic references used throughout production.
+
+- **03_Visual_Development**  
+  - **01_Sketches:** Thumbnail explorations, idea roughs.  
+  - **02_Storyboards:** Narrative-driven sequences for pitch or production.  
+  - **03_Concept_Art:** Characters, environments, props, etc.  
+  - **04_Styleframes:** Polished frames for visual direction and presentation.
+
+- **04_Deliverables**  
+  Final approved visuals, client-ready boards, or layered art files.
+
+- **05_Feedback**  
+  - **01_Internal:** Notes from art leads, peers, or directors.  
+  - **02_Client:** Client-side feedback, revisions, or approval threads.
+
+- **06_Backups**  
+  Working files and final outputs saved for safekeeping.
+
+</details>
+
 
 ## 3D Pipeline
 
@@ -97,6 +155,7 @@
 
 </details>
 
+
 ## Video Editing Pipeline
 
 ```
@@ -168,6 +227,7 @@
 
 </details>
 
+
 ## Graphic Design Pipeline
 
 ```
@@ -208,8 +268,6 @@
 <details>
   <summary>Explanation</summary>
 
-# Explanation of Folder Structure
-
 - **01_PreProduction**
 
   - **01_Briefings:** Notes, client requirements, and project briefs.
@@ -245,6 +303,7 @@
   - **02_Design_Backups:** Specific backups for key design files.
 
 </details>
+
 
 ## Nomenclature for Deliverables
 
