@@ -24,25 +24,25 @@ jobs:
         id: vars
         run: |
           if [ "${{ github.event.inputs.prerelease }}" == "true" ]; then
+            echo "VERSION=${{ github.event.inputs.version }}-pre" >> $GITHUB_ENV
             echo "TAG=v${{ github.event.inputs.version }}-pre" >> $GITHUB_ENV
-            echo "TITLE=Pre-Release v${{ github.event.inputs.version }}" >> $GITHUB_ENV
-            echo "FILENAME_SUFFIX=Pre-Release" >> $GITHUB_ENV
+            echo "TITLE=Release v${{ github.event.inputs.version }}-pre" >> $GITHUB_ENV
           else
+            echo "VERSION=${{ github.event.inputs.version }}" >> $GITHUB_ENV
             echo "TAG=v${{ github.event.inputs.version }}" >> $GITHUB_ENV
             echo "TITLE=Release v${{ github.event.inputs.version }}" >> $GITHUB_ENV
-            echo "FILENAME_SUFFIX=Release" >> $GITHUB_ENV
           fi
 
       # Create ZIP archive
       - name: Create ZIP package
         run: |
-          zip -r "project_${FILENAME_SUFFIX}_${{ github.event.inputs.version }}.zip" . -x "*.git*"
+          zip -r "ImprintStudios_FolderStructure_v${VERSION}.zip" . -x "*.git*"
 
-      # Create 7z archive
+      # Create 7Z archive
       - name: Create 7Z package
         run: |
           sudo apt-get update && sudo apt-get install -y p7zip-full
-          7z a "project_${FILENAME_SUFFIX}_${{ github.event.inputs.version }}.7z" . -xr'!.git'
+          7z a "ImprintStudios_FolderStructure_v${VERSION}.7z" . -xr'!.git'
 
       # Upload both archives to release
       - name: Create GitHub Release
@@ -53,7 +53,7 @@ jobs:
           draft: false
           prerelease: ${{ github.event.inputs.prerelease }}
           files: |
-            project_${{ env.FILENAME_SUFFIX }}_${{ github.event.inputs.version }}.zip
-            project_${{ env.FILENAME_SUFFIX }}_${{ github.event.inputs.version }}.7z
+            ImprintStudios_FolderStructure_v${{ env.VERSION }}.zip
+            ImprintStudios_FolderStructure_v${{ env.VERSION }}.7z
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
