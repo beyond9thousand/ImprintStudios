@@ -1,94 +1,66 @@
-name: Manual Release
+name: Release
 
 on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Version number for the release'
+        description: 'Version number (e.g. v1.0.0)'
         required: true
-        default: '1.0.0'
-      release_body:
-        description: 'Release body content'
-        required: true
-        default: 'Automatic release triggered by workflow_dispatch.'
       prerelease:
-        description: 'Mark this release as a pre-release'
-        required: false
+        description: 'Mark as pre-release? (true/false)'
+        required: true
         default: 'false'
 
 jobs:
-  bundle-scripts:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4  # Updated from v2 to v4
+      - name: Checkout code
+        uses: actions/checkout@v3
 
       - name: Set release suffix
+        id: release_suffix
         run: |
-          if [ "${{ github.event.inputs.prerelease }}" = "true" ]; then
+          if [ "${{ github.event.inputs.prerelease }}" == "true" ]; then
             echo "SUFFIX=-pre" >> $GITHUB_ENV
           else
             echo "SUFFIX=" >> $GITHUB_ENV
           fi
 
-      - name: Insert version comment into scripts
+      - name: Create zip file
         run: |
-          find ./Scripts -type f -name "*.bat" | while read -r file; do
-            sed -i "1s/^/:: Version: v${{ github.event.inputs.version }}${SUFFIX}\n/" "$file"
-          done
+          zip -r myproject_${{ github.event.inputs.version }}${{ env.SUFFIX }}.zip .
 
-      - name: Bundle scripts for release
+      - name: Create 7z file
         run: |
-          zip -r release.zip ./Scripts/*
-
-      - name: Rename zip file with custom version number
-        run: mv release.zip ImprintStudios_FolderStructure_v${{ github.event.inputs.version }}${SUFFIX}.zip
+          7z a myproject_${{ github.event.inputs.version }}${{ env.SUFFIX }}.7z .
 
       - name: Upload release artifact
-        uses: actions/upload-artifact@v4  # Updated from v2 to v4
+        uses: actions/upload-artifact@v3
         with:
-          name: release-zip
-          path: ImprintStudios_FolderStructure_v${{ github.event.inputs.version }}${{ env.SUFFIX }}.zip
+          name: myproject_${{ github.event.inputs.version }}${{ env.SUFFIX }}
+          path: |
+            myproject_${{ github.event.inputs.version }}${{ env.SUFFIX }}.zip
+            myproject_${{ github.event.inputs.version }}${{ env.SUFFIX }}.7z
 
-  create-release:
-    needs: bundle-scripts
+  release:
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download release artifact
-        uses: actions/download-artifact@v4  # Updated from v2 to v4
+      - name: Download build artifact
+        uses: actions/download-artifact@v3
         with:
-          name: release-zip
-          path: release-artifacts
-
-      - name: Set release suffix
-        run: |
-          if [ "${{ github.event.inputs.prerelease }}" = "true" ]; then
-            echo "SUFFIX=-pre" >> $GITHUB_ENV
-          else
-            echo "SUFFIX=" >> $GITHUB_ENV
-          fi
+          name: myproject_${{ github.event.inputs.version }}${{ env.SUFFIX }}
 
       - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-gh-release@v1
         with:
-          tag_name: v${{ github.event.inputs.version }}
-          release_name: Release v${{ github.event.inputs.version }} - Scripts Bundle
+          tag_name: ${{ github.event.inputs.version }}${{ env.SUFFIX }}
+          name: Release ${{ github.event.inputs.version }}${{ env.SUFFIX }}
           draft: false
           prerelease: ${{ github.event.inputs.prerelease }}
-          body: ${{ github.event.inputs.release_body }}
-
-      - name: Upload Release Asset
-        id: upload-release-asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: release-artifacts/ImprintStudios_FolderStructure_v${{ github.event.inputs.version }}${{ env.SUFFIX }}.zip
-          asset_name: ImprintStudios_FolderStructure_v${{ github.event.inputs.version }}${{ env.SUFFIX }}.zip
-          asset_content_type: application/zip
+          files: |
+            myproject_${{ github.event.inputs.version }}${{ env.SUFFIX }}.zip
+            myproject_${{ github.event.inputs.version }}${{ env.SUFFIX }}.7z
