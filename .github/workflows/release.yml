@@ -26,7 +26,7 @@ jobs:
 
       - name: Insert version comment into scripts
         run: |
-          for file in ./Scripts/*.bat; do
+          find ./Scripts -type f -name "*.bat" | while read -r file; do
             sed -i "1s/^/:: Version: v${{ github.event.inputs.version }}\n/" "$file"
           done
 
