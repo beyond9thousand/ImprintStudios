@@ -1,66 +1,59 @@
-name: Release
+name: Manual Release
 
 on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Version number (e.g. v1.0.0)'
+        description: "Version number (e.g. 1.0.0)"
         required: true
       prerelease:
-        description: 'Mark as pre-release? (true/false)'
+        description: "Mark as pre-release?"
         required: true
-        default: 'false'
+        type: boolean
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Set release suffix
-        id: release_suffix
+      # Prepare version info
+      - name: Set version variables
+        id: vars
         run: |
           if [ "${{ github.event.inputs.prerelease }}" == "true" ]; then
-            echo "SUFFIX=-pre" >> $GITHUB_ENV
+            echo "TAG=v${{ github.event.inputs.version }}-pre" >> $GITHUB_ENV
+            echo "TITLE=Pre-Release v${{ github.event.inputs.version }}" >> $GITHUB_ENV
+            echo "FILENAME_SUFFIX=Pre-Release" >> $GITHUB_ENV
           else
-            echo "SUFFIX=" >> $GITHUB_ENV
+            echo "TAG=v${{ github.event.inputs.version }}" >> $GITHUB_ENV
+            echo "TITLE=Release v${{ github.event.inputs.version }}" >> $GITHUB_ENV
+            echo "FILENAME_SUFFIX=Release" >> $GITHUB_ENV
           fi
 
-      - name: Create zip file
+      # Create ZIP archive
+      - name: Create ZIP package
         run: |
-          zip -r myproject_${{ github.event.inputs.version }}${{ env.SUFFIX }}.zip .
+          zip -r "project_${FILENAME_SUFFIX}_${{ github.event.inputs.version }}.zip" . -x "*.git*"
 
-      - name: Create 7z file
+      # Create 7z archive
+      - name: Create 7Z package
         run: |
-          7z a myproject_${{ github.event.inputs.version }}${{ env.SUFFIX }}.7z .
+          sudo apt-get update && sudo apt-get install -y p7zip-full
+          7z a "project_${FILENAME_SUFFIX}_${{ github.event.inputs.version }}.7z" . -xr'!.git'
 
-      - name: Upload release artifact
-        uses: actions/upload-artifact@v4 # Changed from v3 to v4
-        with:
-          name: myproject_${{ github.event.inputs.version }}${{ env.SUFFIX }}
-          path: |
-            myproject_${{ github.event.inputs.version }}${{ env.SUFFIX }}.zip
-            myproject_${{ github.event.inputs.version }}${{ env.SUFFIX }}.7z
-
-  release:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Download build artifact
-        uses: actions/download-artifact@v4 # Changed from v3 to v4
-        with:
-          name: myproject_${{ github.event.inputs.version }}${{ env.SUFFIX }}
-
-      - name: Create Release
+      # Upload both archives to release
+      - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ github.event.inputs.version }}${{ env.SUFFIX }}
-          name: Release ${{ github.event.inputs.version }}${{ env.SUFFIX }}
+          tag_name: ${{ env.TAG }}
+          name: ${{ env.TITLE }}
           draft: false
           prerelease: ${{ github.event.inputs.prerelease }}
           files: |
-            myproject_${{ github.event.inputs.version }}${{ env.SUFFIX }}.zip
-            myproject_${{ github.event.inputs.version }}${{ env.SUFFIX }}.7z
+            project_${{ env.FILENAME_SUFFIX }}_${{ github.event.inputs.version }}.zip
+            project_${{ env.FILENAME_SUFFIX }}_${{ github.event.inputs.version }}.7z
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
