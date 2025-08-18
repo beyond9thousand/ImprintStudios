@@ -37,7 +37,7 @@ jobs:
           7z a myproject_${{ github.event.inputs.version }}${{ env.SUFFIX }}.7z .
 
       - name: Upload release artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4 # Changed from v3 to v4
         with:
           name: myproject_${{ github.event.inputs.version }}${{ env.SUFFIX }}
           path: |
@@ -50,7 +50,7 @@ jobs:
 
     steps:
       - name: Download build artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4 # Changed from v3 to v4
         with:
           name: myproject_${{ github.event.inputs.version }}${{ env.SUFFIX }}
 
