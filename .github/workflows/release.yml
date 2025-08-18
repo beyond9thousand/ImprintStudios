@@ -24,10 +24,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4  # Updated from v2 to v4
 
+      - name: Set release suffix
+        run: |
+          if [ "${{ github.event.inputs.prerelease }}" = "true" ]; then
+            echo "SUFFIX=-pre" >> $GITHUB_ENV
+          else
+            echo "SUFFIX=" >> $GITHUB_ENV
+          fi
+
       - name: Insert version comment into scripts
         run: |
           find ./Scripts -type f -name "*.bat" | while read -r file; do
-            sed -i "1s/^/:: Version: v${{ github.event.inputs.version }}\n/" "$file"
+            sed -i "1s/^/:: Version: v${{ github.event.inputs.version }}${SUFFIX}\n/" "$file"
           done
 
       - name: Bundle scripts for release
@@ -35,13 +43,13 @@ jobs:
           zip -r release.zip ./Scripts/*
 
       - name: Rename zip file with custom version number
-        run: mv release.zip ImprintStudios_FolderStructure_v${{ github.event.inputs.version }}.zip
+        run: mv release.zip ImprintStudios_FolderStructure_v${{ github.event.inputs.version }}${SUFFIX}.zip
 
       - name: Upload release artifact
         uses: actions/upload-artifact@v4  # Updated from v2 to v4
         with:
           name: release-zip
-          path: ImprintStudios_FolderStructure_v${{ github.event.inputs.version }}.zip
+          path: ImprintStudios_FolderStructure_v${{ github.event.inputs.version }}${{ env.SUFFIX }}.zip
 
   create-release:
     needs: bundle-scripts
@@ -53,6 +61,14 @@ jobs:
         with:
           name: release-zip
           path: release-artifacts
+
+      - name: Set release suffix
+        run: |
+          if [ "${{ github.event.inputs.prerelease }}" = "true" ]; then
+            echo "SUFFIX=-pre" >> $GITHUB_ENV
+          else
+            echo "SUFFIX=" >> $GITHUB_ENV
+          fi
 
       - name: Create Release
         id: create_release
@@ -73,6 +89,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: release-artifacts/ImprintStudios_FolderStructure_v${{ github.event.inputs.version }}.zip
-          asset_name: ImprintStudios_FolderStructure_v${{ github.event.inputs.version }}.zip
+          asset_path: release-artifacts/ImprintStudios_FolderStructure_v${{ github.event.inputs.version }}${{ env.SUFFIX }}.zip
+          asset_name: ImprintStudios_FolderStructure_v${{ github.event.inputs.version }}${{ env.SUFFIX }}.zip
           asset_content_type: application/zip
