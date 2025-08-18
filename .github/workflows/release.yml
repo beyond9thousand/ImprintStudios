@@ -26,11 +26,11 @@ jobs:
           if [ "${{ github.event.inputs.prerelease }}" == "true" ]; then
             echo "VERSION=${{ github.event.inputs.version }}-pre" >> $GITHUB_ENV
             echo "TAG=v${{ github.event.inputs.version }}-pre" >> $GITHUB_ENV
-            echo "TITLE=Release v${{ github.event.inputs.version }}-pre Pipeline Folder Generation" >> $GITHUB_ENV
+            echo "TITLE=Release v${{ github.event.inputs.version }}-pre" >> $GITHUB_ENV
           else
             echo "VERSION=${{ github.event.inputs.version }}" >> $GITHUB_ENV
             echo "TAG=v${{ github.event.inputs.version }}" >> $GITHUB_ENV
-            echo "TITLE=Release v${{ github.event.inputs.version }} Pipeline Folder Generation" >> $GITHUB_ENV
+            echo "TITLE=Release v${{ github.event.inputs.version }}" >> $GITHUB_ENV
           fi
 
       # Create ZIP archive
