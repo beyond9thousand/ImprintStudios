@@ -203,7 +203,7 @@ for /f "tokens=2 delims==" %%I in ('wmic os get localdatetime /value') do set "d
 set "FormattedDate=%dt:~2,2%%dt:~4,2%%dt:~6,2%"
 
 :: Define the root directory path for the project
-set "RootDir=!CategoryDir!\%FormattedDate%_%Project%_%CategoryName%"
+set "RootDir=!CategoryDir!\%FormattedDate%_%Project%+%CategoryName%"
 md "%RootDir%"
 
 :: Create subdirectories based on the selected category
